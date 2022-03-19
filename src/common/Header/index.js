@@ -1,9 +1,10 @@
 import React from "react";
+import { HeaderContainer } from "./styled";
 
 const Header = () => (
-    <h1>
+    <HeaderContainer>
         "Who's that Pokemon?!"
-    </h1>
+    </HeaderContainer>
 )
 
 export default Header;
