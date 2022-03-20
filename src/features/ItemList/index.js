@@ -11,8 +11,8 @@ const ItemList = () => {
                 sprite={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg'}
                 weight={6.9}
                 height={0.7}
-            >
-            </Tile>
+            />
+            
         </ul>
     )
 }
