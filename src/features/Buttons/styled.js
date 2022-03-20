@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ButtonsContainer = styled.div`
     padding: 20px 30px;
     border-top: 3px solid ${({ theme }) => theme.borderColor};
-    border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+    border-bottom: 3px solid ${({ theme }) => theme.borderColor};
     display: flex;
     align-items: center;
     justify-content: center;
