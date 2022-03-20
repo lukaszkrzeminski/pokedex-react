@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Item = styled.li`
     list-style: none;
@@ -12,6 +12,11 @@ export const Item = styled.li`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 1s;
+
+    ${({ expand }) => expand && css`
+        transform: scale(1.2);
+    `}
 `;
 
 export const BasicContent = styled.div`
@@ -25,5 +30,12 @@ export const DescriptionText = styled.span`
 `;
 
 export const ExtraContent = styled.div`
-    display:flex;
+    display:none;
+    visibility: hidden;
+    transition: all 2s;
+
+    ${({ expand }) => expand && css`
+        display:flex;    
+        visibility: visible;
+    `}
 `;
