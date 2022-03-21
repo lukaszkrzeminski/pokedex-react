@@ -6,7 +6,6 @@ export const getInitialPokemon = async () => {
     }
 
     const initialPokemonList = await response.json();
-    console.log(initialPokemonList);
 
     return initialPokemonList;
 };
