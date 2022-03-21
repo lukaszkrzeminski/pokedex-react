@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchInitialPokemonList, selectPokemonList } from "../../pokedexSlice";
 import Tile from "../Tile";
 import { List } from "./styled";
 
 const ItemList = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchInitialPokemonList());
+    }, [dispatch])
+
     return (
         <List>
             <Tile
