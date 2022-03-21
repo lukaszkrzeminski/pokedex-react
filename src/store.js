@@ -1,10 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import pokedexReducer from "./features/pokedexSlice";
+import createSagaMiddleware from "redux-saga";
+import pokemonListReducer from "./features/pokedexSlice";
+import { watchFetchInitialPokemonList } from "./features/pokedexSaga";
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
     reducer: {
-        pokedex: pokedexReducer,
-    }
+        pokemonList: pokemonListReducer,
+    },
+    middleware: [sagaMiddleware],
 });
+
+sagaMiddleware.run(watchFetchInitialPokemonList);
 
 export default store;
