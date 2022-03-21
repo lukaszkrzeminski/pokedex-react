@@ -5,7 +5,7 @@ const Buttons = () => {
     return (
         <ButtonsContainer>
             <Button>Load more</Button>
-            <Button>Filter by:</Button>
+            <Button>Switch to DarkMode</Button>
         </ButtonsContainer>
     )
 }
