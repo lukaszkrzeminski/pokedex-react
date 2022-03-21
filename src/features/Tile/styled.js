@@ -12,10 +12,10 @@ export const Item = styled.li`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 1s;
+    transition: .5s;
 
     ${({ expand }) => expand && css`
-        transform: scale(1.2);
+        transform: scale(1.1);
     `}
 `;
 
