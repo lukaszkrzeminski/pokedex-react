@@ -5,7 +5,7 @@ export const getInitialPokemon = async () => {
         new Error(response.statusTest);
     }
 
-    const initialPokemonList = await response.json();
+    const initialData = await response.json();
 
-    return initialPokemonList;
+    return initialData;
 };

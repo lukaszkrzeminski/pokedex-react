@@ -4,6 +4,7 @@ const pokedexSlice = createSlice({
     name:"pokemonList",
     initialState: {
         pokemonList: [],
+        nextPage: "",
         loading: true,
     },
     reducers: {
@@ -11,7 +12,8 @@ const pokedexSlice = createSlice({
             state.loading = true;
         },
         fetchInitialPokemonListSuccess: (state, { payload: initialPokemonList }) => {
-            state.pokemonList = initialPokemonList;
+            state.pokemonList = initialPokemonList.results;
+            state.nextPage = initialPokemonList.next;
             state.loading = false;
         },
         fetchInitialPokemonListError: (state) => {
@@ -29,4 +31,5 @@ export const {
 const selectPokedexState = state => state.pokemonList;
 
 export const selectPokemonList = state => selectPokedexState(state).pokemonList;
+export const selectNextPage = state => selectPokedexState(state).nextPage;
 export default pokedexSlice.reducer;
