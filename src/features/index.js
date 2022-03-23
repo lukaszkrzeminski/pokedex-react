@@ -2,13 +2,13 @@ import React from "react";
 import Header from "../common/Header";
 import Main from "../common/Main"
 import Buttons from "./Pokedex/Buttons";
-import ItemList from "./Pokedex/ItemList";
+import Tile from "./Pokedex/Tile";
 
 const Pokedex = () => (
     <Main>
         <Header />
         <Buttons />
-        <ItemList />
+        <Tile />
       </Main>
 )
 

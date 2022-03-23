@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const List = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+`;
+
 export const ButtonsContainer = styled.div`
     padding: 20px 30px;
     border-top: 3px solid ${({ theme }) => theme.borderColor};
