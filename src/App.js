@@ -3,7 +3,7 @@ import Pokedex from "./features";
 
 function App() {
   return (
-      <Pokedex />
+    <Pokedex />
   );
 }
 

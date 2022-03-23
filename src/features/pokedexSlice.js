@@ -1,35 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const pokedexSlice = createSlice({
-    name:"pokemonList",
+    name:"pokemonData",
     initialState: {
-        pokemonList: [],
+        pokemonUrlList: "",
         nextPage: "",
+        pokemonList: [],
         loading: true,
     },
     reducers: {
-        fetchInitialPokemonList: (state) => {
+        fetchInitialPokemonData: (state) => {
             state.loading = true;
         },
-        fetchInitialPokemonListSuccess: (state, { payload: initialPokemonList }) => {
-            state.pokemonList = initialPokemonList.results;
-            state.nextPage = initialPokemonList.next;
+        fetchInitialPokemonDataSuccess: (state, { payload: data }) => {
+            state.pokemonUrlList = data[1];
+            state.nextPage = data[0];
+            state.pokemonList = data[2];
             state.loading = false;
         },
-        fetchInitialPokemonListError: (state) => {
+        fetchInitialPokemonDataError: (state) => {
             state.loading = false;
         },
     },
 })
 
 export const {
-    fetchInitialPokemonList,
-    fetchInitialPokemonListSuccess,
-    fetchInitialPokemonListError,
+    fetchInitialPokemonData,
+    fetchInitialPokemonDataSuccess,
+    fetchInitialPokemonDataError,
 } = pokedexSlice.actions;
 
-const selectPokedexState = state => state.pokemonList;
-
-export const selectPokemonList = state => selectPokedexState(state).pokemonList;
-export const selectNextPage = state => selectPokedexState(state).nextPage;
+export const selectPokemonUrlList = state => state.pokemonData.pokemonUrlList;
+export const selectNextPage = state => state.pokemonData.nextPage;
+export const selectPokemonList = state => state.pokemonData.pokemonList;
 export default pokedexSlice.reducer;

@@ -1,21 +1,21 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 import { getInitialPokemon } from "./api";
 import {
-    fetchInitialPokemonList,
-    fetchInitialPokemonListSuccess,
-    fetchInitialPokemonListError
+    fetchInitialPokemonData,
+    fetchInitialPokemonDataSuccess,
+    fetchInitialPokemonDataError,
 } from "./pokedexSlice";
 
 
-function* fetchInitialPokemonListHandler() {
+function* fetchInitialPokemonDataHandler() {
     try {
-        const initialPokemonList = yield call(getInitialPokemon)
-        yield put(fetchInitialPokemonListSuccess(initialPokemonList))
+        const initialPokemonData = yield call(getInitialPokemon)
+        yield put(fetchInitialPokemonDataSuccess(initialPokemonData))
     } catch (error) {
-        yield put(fetchInitialPokemonListError());
+        yield put(fetchInitialPokemonDataError());
     }
 }
 
 export function* watchFetchInitialPokemonList() {
-    yield takeEvery(fetchInitialPokemonList.type, fetchInitialPokemonListHandler);
+    yield takeLatest(fetchInitialPokemonData.type, fetchInitialPokemonDataHandler);
 }
