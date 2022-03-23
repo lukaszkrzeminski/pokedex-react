@@ -1,10 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const List = styled.ul`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-`;
-
 export const Item = styled.li`
     list-style: none;
     margin: 10px 20px;
@@ -25,7 +20,7 @@ export const Item = styled.li`
 `;
 
 export const Image = styled.img`
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
 `;
 

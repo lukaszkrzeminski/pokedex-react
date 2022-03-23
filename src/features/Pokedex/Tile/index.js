@@ -1,40 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchInitialPokemonData, selectPokemonList } from "../../pokedexSlice";
-import { Item, BasicContent, DescriptionText, ExtraContent, List, Image } from "./styled";
+import React, { useState } from "react";
+import { Item, BasicContent, DescriptionText, ExtraContent, Image } from "./styled";
 
-const Tile = () => {
+const Tile = ( {name, sprite, types, weight,  height} ) => {
     const [expand, setExpand] = useState(false);
-    const dispatch = useDispatch();
-    const pokemonList = useSelector(selectPokemonList);
 
-    useEffect(() => {
-        dispatch(fetchInitialPokemonData());
-    }, [])
-
-    const onTileClick = () => {
-        setExpand(!expand);
+    const typesList = [];
+    let i = 0;
+    for(const type of types){
+        typesList[i] = type.type.name+" ";
+        i++;
     }
 
     return (
-        <>
-        <List>
-            {pokemonList.map((pokemon) => 
-                <Item key={pokemon.name} onClick={() => onTileClick()} expand={expand ? true : false}>
-                    <Image src={pokemon.sprites.other.dream_world.front_default} alt={`${pokemon.name} sprite`} />
+                <Item onClick={() => setExpand(!expand)} expand={expand ? true : false}>
+                    <Image src={sprite} alt={`${name} sprite`} />
                     <BasicContent>
-                        <DescriptionText>Name: {pokemon.name}</DescriptionText>
-                        <DescriptionText>Type: {pokemon.types[0].type.name}</DescriptionText>
+                        <DescriptionText>Name: {name}</DescriptionText>
+                        <DescriptionText>Type: {typesList}</DescriptionText>
                     </BasicContent>
                     <ExtraContent expand={expand ? true : false}>
-                        <DescriptionText>Weight: {pokemon.weight}</DescriptionText>
-                        <DescriptionText>Height: {pokemon.height}</DescriptionText>
+                        <DescriptionText>Weight: {weight}</DescriptionText>
+                        <DescriptionText>Height: {height}</DescriptionText>
                     </ExtraContent>
                 </Item>
-            )
-            }
-        </List>
-        </>
     )
 }
 
