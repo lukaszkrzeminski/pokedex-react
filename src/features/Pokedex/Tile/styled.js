@@ -8,6 +8,7 @@ export const Item = styled.li`
     border: 3px solid ${({ theme }) => theme.borderColor};
     border-radius: 15px;
     background-color: ${({ theme }) => theme.secondaryColor};
+    color: ${({ theme }) => theme.primaryText};
     display: flex;
     flex-direction: column;
     justify-content: center;
